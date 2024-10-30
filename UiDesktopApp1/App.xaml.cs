@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Threading;
 using UiDesktopApp1.interfaces;
+using UiDesktopApp1.Models;
 using UiDesktopApp1.Services;
 using UiDesktopApp1.ViewModels.Pages;
 using UiDesktopApp1.ViewModels.Windows;
@@ -48,7 +49,9 @@ namespace UiDesktopApp1
                 services.AddSingleton<MainWindowViewModel>();
 
                 services.AddSingleton<IDateTime, DateTimeService>();
-
+                services.AddSingleton<IDatabase<GangnamguPopulation>, GangnamguPopulationService>();
+                services.AddDbContext<WpfProjectDatabaseContext>();
+                
                 services.AddSingleton<DashboardPage>();
                 services.AddSingleton<DashboardViewModel>();
                 services.AddSingleton<DataPage>();
